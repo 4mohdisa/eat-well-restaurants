@@ -65,5 +65,5 @@ app.get("/restaurants", (req, res) => {
     restaurants: storedRestaurants,
   });
 });
-const PORT = process.env.PORT || config.httpPort;
-app.listen(PORT);
+// const PORT = process.env.PORT || config.httpPort;
+app.listen(3000);
