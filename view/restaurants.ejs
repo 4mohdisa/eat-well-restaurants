@@ -8,23 +8,20 @@
     <%- include('includes/Header') %> <%- include('includes/Aside') %>
     <main>
       <h1>Recommended restaurants</h1>
-      <% if(numberOfRestaurants === 0) { %>
+      <% if (numberOfRestaurants === 0) { %>
       <p>
-        Unfortunately, we have no restaurents yet -maybe start recommending
+        Unfortunately, we have no restaurants yet - maybe start recommending
         some?
       </p>
-      <div class="recommend-actions">
-        <a href="/recommend">Share Restaurant</a>
-      </div>
-      <%} else{ %>
+      <% } else { %>
       <p>Find your next favorite restaurants with help of our other users!</p>
-      <p>We found <%= numberOfRestaurants %> restaurants</p>
+      <p>We found <%= numberOfRestaurants %> restaurants.</p>
       <ul id="restaurants-list">
-        <% for(const restaurant of restaurants) { %> <%-
-        include('includes/restaurants/restaurant-item', {restaurant:
-        restaurant}) %> <% } %>
+        <% for (const restaurant of restaurants) { %> <%-
+        include('includes/restaurants/restaurant-item', {restaurant: restaurant
+        }) %> <% } %>
       </ul>
-      <% }%>
+      <% } %>
     </main>
   </body>
 </html>

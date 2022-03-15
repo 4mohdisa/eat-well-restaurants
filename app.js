@@ -1,8 +1,10 @@
-const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const { stringify } = require("querystring");
+
+const express = require("express");
 const uuid = require("uuid");
+
+const resData = require("./util/restaurant-data");
 
 const app = express();
 
@@ -28,22 +30,16 @@ app.get("/recommend", (req, res) => {
 app.post("/recommend", (req, res) => {
   const restaurant = req.body;
   restaurant.id = uuid.v4();
-  const filePath = path.join(__dirname, "data", "restaurants.json");
+  const restaurants = resData.getStoredRestaurants();
 
-  const fileData = fs.readFileSync(filePath);
-  const storedRestaurants = JSON.parse(fileData);
+  restaurants.push(restaurant);
 
-  storedRestaurants.push(restaurant);
-
-  fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+  resData.storeRestaurants(restaurants);
   res.redirect("/confirm");
 });
 
 app.get("/restaurants", (req, res) => {
-  const filePath = path.join(__dirname, "data", "restaurants.json");
-
-  const fileData = fs.readFileSync(filePath);
-  const storedRestaurants = JSON.parse(fileData);
+  const storedRestaurants = resData.getStoredRestaurants();
 
   res.render("restaurants", {
     numberOfRestaurants: storedRestaurants.length,
@@ -53,9 +49,7 @@ app.get("/restaurants", (req, res) => {
 
 app.get("/restaurants/:id", (req, res) => {
   const restaurantId = req.params.id;
-  const filePath = path.join(__dirname, "data", "restaurants.json");
-  const fileData = fs.readFileSync(filePath);
-  const storedRestaurants = JSON.parse(fileData);
+  const storedRestaurants = resData.getStoredRestaurants();
 
   for (const restaurant of storedRestaurants) {
     if (restaurant.id === restaurantId) {
@@ -68,8 +62,8 @@ app.get("/restaurants/:id", (req, res) => {
 app.use((req, res) => {
   res.status(404).render("404"); // page not found error
 });
-app.use((error, req, res, next) => {
-  res.status(500).render("500"); // server side error
-});
+// app.use((error, req, res, next) => {
+//   res.status(500).render("500"); // server side error
+// });
 // const PORT = process.env.PORT || config.httpPort;
 app.listen(3000);
