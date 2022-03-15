@@ -1,0 +1,28 @@
+
+  //   const htmlFilePath = path.join(__dirname, "view", "index.html");
+  //   res.sendFile(htmlFilePath);
+
+
+
+    //   const htmlFilePath = path.join(__dirname, "view", "about.html");
+
+  //   res.sendFile(htmlFilePath);
+
+
+
+  //   const htmlFilePath = path.join(__dirname, "view", "confirm.html");
+
+  //   res.sendFile(htmlFilePath);
+
+
+
+  //   const htmlFilePath = path.join(__dirname, "view", "recommend.html");
+  //   res.sendFile(htmlFilePath);
+
+  
+  // fs.writeFileSync(filePath, JSON.stringify(restaurant));
+
+
+    //   const htmlFilePath = path.join(__dirname, "view", "restaurants.html");
+
+  //   res.sendFile(htmlFilePath);
