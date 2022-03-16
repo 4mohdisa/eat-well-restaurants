@@ -1,8 +1,1 @@
-{
-  "name": "Test",
-  "address": "Test",
-  "cuisine": "test",
-  "website": "https://www.tutorialspoint.com/redirecting-requests-in-node-js",
-  "description": "Test",
-  "id": "242a2f31-b1cf-4bc1-a320-9ce77004b1fe"
-}
+[{"name":"Papadums","address":"North australia adelaide","cuisine":"Indian","website":"https://www.tutorialspoint.com/redirecting-requests-in-node-js","description":"good food","id":"c1881b9c-9874-47cd-9418-2cbaa230bba8"},{"name":"mohd isa","address":"North australia adelaide","cuisine":"Indian","website":"https://www.tutorialspoint.com/redirecting-requests-in-node-js","description":"test1","id":"ce8bb5b2-4708-46c6-8ece-018f287657a8"}]

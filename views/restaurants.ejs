@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('includes/Head') %>
-    <link rel="stylesheet" href="styles/restaurants.css" />
+    <%- include('includes/head') %>
+    <link rel="stylesheet" href="/styles/restaurants.css" />
   </head>
   <body>
-    <%- include('includes/Header') %> <%- include('includes/Aside') %>
+    <%- include('includes/header') %> <%- include('includes/side-drawer') %>
     <main>
       <h1>Recommended restaurants</h1>
       <% if (numberOfRestaurants === 0) { %>
@@ -13,6 +13,9 @@
         Unfortunately, we have no restaurants yet - maybe start recommending
         some?
       </p>
+      <div class="recommend-actions">
+        <a href="/recommend">Recommend</a>
+      </div>
       <% } else { %>
       <p>Find your next favorite restaurants with help of our other users!</p>
       <p>We found <%= numberOfRestaurants %> restaurants.</p>
